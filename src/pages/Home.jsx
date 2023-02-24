@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className={classes.home}>
         <div className={classes.banner}>
-            <img src={classes.bannerImg} alt="">
+            <div src={classes.bannerImg} alt="">
                 <div className={classes.bannerInfo}>
                     <img src="" alt="" className={classes.collectionLogo}/>
                     <h2 className={classes.collectionTitle}>Title</h2>
@@ -16,7 +16,7 @@ const Home = () => {
                     <div className={classes.favorites}></div>
                     <div className={classes.view}>View Collection</div>
                 </div>
-            </img>
+            </div>
         </div>
     </div>
   )
