@@ -1,5 +1,16 @@
 .home {
     width: 100%;
     height: auto;
+    display: flex;
+    justify-content: center;
+}
 
+.container {
+    width: 90%;
+}
+
+.banner {
+    width: 60%;
+    background-size: contain;
+    height: 500px;
 }

@@ -5,6 +5,7 @@ import Cart from '../assests/icons/Cart'
 import Account from '../assests/icons/Account'
 import OpenSeaLogo from '../assests/icons/OpenSeaLogo'
 import { Link } from 'react-router-dom'
+import Loupe from '../assests/icons/Loupe'
 
 const Header = () => {
   return (
@@ -17,6 +18,7 @@ const Header = () => {
           </div>
         </Link>
         <div className={classes.search}>
+          <Loupe size={27}/>
           <input type="text" placeholder='Search for NFTs'/>
         </div>
         <Wallet />

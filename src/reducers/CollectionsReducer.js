@@ -9,20 +9,25 @@ const initialState = {
 }
 
 export const fetchCollections = createAsyncThunk('collections/fetchCollections', async () => {
+
     const options = {
-        method: 'GET',
-        url: 'https://opensea13.p.rapidapi.com/collections',
-        params: {offset: '0', limit: '30'},
-        headers: {
-            'X-RapidAPI-Key': '6e02f7ad70msh20f68a0ff65e3dfp1739e7jsnadef5bc0992e',
-            'X-RapidAPI-Host': 'opensea13.p.rapidapi.com',
-            'Access-Control-Allow-Origin': "*",
-        }
+    method: 'GET',
+    url: 'https://opensea13.p.rapidapi.com/collections',
+    params: {offset: '0', limit: '300'},
+    headers: {
+        'X-RapidAPI-Key': '6e02f7ad70msh20f68a0ff65e3dfp1739e7jsnadef5bc0992e',
+        'X-RapidAPI-Host': 'opensea13.p.rapidapi.com'
+    }
     };
-    const response = await axios.request(options)
-    console.log(response)
-    return response.data
+
+    axios.request(options).then(function (response) {
+        console.log(response.data);
+        return response.data
+    }).catch(function (error) {
+        console.error(error);
+    });
 })
+
 
 export const collectionsSlice = createSlice({
     name: "collections",
@@ -35,7 +40,8 @@ export const collectionsSlice = createSlice({
             })
             .addCase(fetchCollections.fulfilled, (state, action) => {
                 state.status = "succeeded"
-                state.collections = action.payload.collections
+                console.log(action.payload)
+                state.collections = action.payload
             })
             .addCase(fetchCollections.rejected, (state, action) => {
                 state.status = 'failed'
@@ -43,6 +49,7 @@ export const collectionsSlice = createSlice({
             })
     }
 })
+
 
 export const selectAllCollections = (state) => state.collections.collections
 export const selectCollectionsError = (state) => state.collections.error
