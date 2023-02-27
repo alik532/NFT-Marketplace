@@ -1,0 +1,52 @@
+.card {
+    width: 328px;
+    height: 320px;
+    border-radius: 10px;
+    color: white;
+    background-color: #2c2e32;
+}
+
+.img {
+    width: 328px;
+    height: 213px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 25px;
+}
+
+.title > div {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.info {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info h2 {
+    font-size: 19px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stat {
+    color: #5c5f66;
+}
+
+.v {
+    width: 30px;
+    height: 30px;
+}
