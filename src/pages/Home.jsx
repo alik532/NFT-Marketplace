@@ -3,17 +3,29 @@ import classes from '../styles/Home.module.css'
 import { collections } from '../data/HomePageCollections'
 import { getValidImgLink } from '../helperFunctions/validateImgLinks'
 import CollectionList from '../components/CollectionList'
+import { useState } from 'react'
 
 const Home = () => {
 
     console.log(collections)
-    const bannerCollection = collections[9]
+
+    const [banner, setBanner] = useState(0)
+
+    const bannerCollection = collections[banner]
+
+    function changeBanner(to) {
+        if (to === "left" && banner !== 0)
+            setBanner(prev => prev - 1)
+        else if (to === 'right' & banner !== collections.length - 1)
+            setBanner(prev => prev+1)
+    }
 
     return (
         <div className={classes.home}>
             <div className={classes.bannerCurtain}></div>
             <img className={classes.bannerBackground} style={{backgroundImage: `url(${getValidImgLink(bannerCollection.banner_image_url)})`}} alt=''/>
             <div className={classes.container}>
+                <div className={classes.arrow} style={{left: "45px", top: "400px"}} onClick={() => changeBanner("left")}>{`<`}</div>
                 <div className={classes.bannerImg} alt="" style={{backgroundImage: `url(${getValidImgLink(bannerCollection.banner_image_url)})`}} >
                     <div className={classes.bannerInfo}>
                         <img src={bannerCollection.image_url} alt="" className={classes.collectionLogo}/>
@@ -25,6 +37,7 @@ const Home = () => {
                         <div className={classes.favorites}>favorites</div>
                         <div className={classes.view}>View Collection</div>
                     </div>
+                <div className={classes.arrow} style={{right: "45px", top: "400px"}} onClick={() => changeBanner("right")}>{`>`}</div>
                 </div>
                 <CollectionList collections={collections}/>
             </div>

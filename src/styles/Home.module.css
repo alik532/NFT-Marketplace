@@ -46,7 +46,7 @@
 }
 
 .bannerImg:hover {
-    background-position: -10px -10px;
+    position: initial;
 }
 
 .bannerInfo {
@@ -76,4 +76,25 @@
 
 .author, .items {
     font-size: 20px;
+}
+
+
+.arrow {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: transparent;
+    border: 1px white solid;
+    transition: 0.15s;
+    user-select: none; /* Standard syntax */
+}
+
+.arrow:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.527);
 }
