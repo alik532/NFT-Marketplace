@@ -5,6 +5,7 @@ import { getValidImgLink } from '../helperFunctions/validateImgLinks'
 import CollectionList from '../components/CollectionList'
 import { useState } from 'react'
 import StarIcon from '../assests/icons/StarIcon'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
 
@@ -40,11 +41,13 @@ const Home = () => {
                                 <StarIcon size={35}/>
                             </div>
                         </div>
-                        <div className={classes.view}>
-                            <div>
-                                VIEW COLLECTION
+                        <Link to={`/collection/${bannerCollection.slug}`}>
+                            <div className={classes.view}>
+                                <div>
+                                    VIEW COLLECTION
+                                </div>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                 </div>
                 <div className={classes.arrow} style={{right: "45px", top: "400px"}} onClick={() => changeBanner("right")}>{`>`}</div>

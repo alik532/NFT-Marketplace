@@ -4,7 +4,7 @@ import { Verified } from '@mui/icons-material'
 
 const CollectionCard = ({collection}) => {
   return (
-    <a className={classes.card} href="/">
+    <div className={classes.card}>
         <img src={collection.image_url} alt="" className={classes.img}/>
         <div className={classes.info}>
             <h2 className={classes.title}>
@@ -32,7 +32,7 @@ const CollectionCard = ({collection}) => {
                 </div>
             </div>
         </div>
-    </a>
+    </div>
   )
 }
 
