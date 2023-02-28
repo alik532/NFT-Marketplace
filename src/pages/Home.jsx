@@ -4,6 +4,7 @@ import { collections } from '../data/HomePageCollections'
 import { getValidImgLink } from '../helperFunctions/validateImgLinks'
 import CollectionList from '../components/CollectionList'
 import { useState } from 'react'
+import StarIcon from '../assests/icons/StarIcon'
 
 const Home = () => {
 
@@ -24,8 +25,8 @@ const Home = () => {
         <div className={classes.home}>
             <div className={classes.bannerCurtain}></div>
             <img className={classes.bannerBackground} style={{backgroundImage: `url(${getValidImgLink(bannerCollection.banner_image_url)})`}} alt=''/>
+            <div className={classes.arrow} style={{left: "45px", top: "400px"}} onClick={() => changeBanner("left")}>{`<`}</div>
             <div className={classes.container}>
-                <div className={classes.arrow} style={{left: "45px", top: "400px"}} onClick={() => changeBanner("left")}>{`<`}</div>
                 <div className={classes.bannerImg} alt="" style={{backgroundImage: `url(${getValidImgLink(bannerCollection.banner_image_url)})`}} >
                     <div className={classes.bannerInfo}>
                         <img src={bannerCollection.image_url} alt="" className={classes.collectionLogo}/>
@@ -33,12 +34,20 @@ const Home = () => {
                         <div className={classes.author}>By {bannerCollection.twitter_username}</div>
                         <div className={classes.items}>{bannerCollection.stats.count} items - {bannerCollection.stats.floor_price} ETH</div>
                     </div>
-                    <div className={classes.bannerButons}>
-                        <div className={classes.favorites}>favorites</div>
-                        <div className={classes.view}>View Collection</div>
+                    <div className={classes.bannerButtons}>
+                        <div className={classes.favorites}>
+                            <div>
+                                <StarIcon size={35}/>
+                            </div>
+                        </div>
+                        <div className={classes.view}>
+                            <div>
+                                VIEW COLLECTION
+                            </div>
+                        </div>
                     </div>
-                <div className={classes.arrow} style={{right: "45px", top: "400px"}} onClick={() => changeBanner("right")}>{`>`}</div>
                 </div>
+                <div className={classes.arrow} style={{right: "45px", top: "400px"}} onClick={() => changeBanner("right")}>{`>`}</div>
                 <CollectionList collections={collections}/>
             </div>
         </div>

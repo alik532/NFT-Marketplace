@@ -4,6 +4,7 @@
     border-radius: 10px;
     color: white;
     background-color: #2c2e32;
+    transition: 0.2s;
 }
 
 .img {
@@ -49,4 +50,8 @@
 .v {
     width: 30px;
     height: 30px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
 }
