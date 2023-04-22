@@ -1,0 +1,19 @@
+.panel {
+    background-color: #202225;
+    font-size: 14px;
+    border-radius: 8px;
+    width: 320px;
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 20px;
+    color: white;
+    margin-right: 30px;
+}
+
+.panel:hover {
+    background-color: #2f3236;
+}
+
+.space {
+    padding: 10px 20px;
+}

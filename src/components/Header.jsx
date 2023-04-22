@@ -5,7 +5,7 @@ import Cart from '../assests/icons/Cart'
 import Account from '../assests/icons/Account'
 import OpenSeaLogo from '../assests/icons/OpenSeaLogo'
 import { Link } from 'react-router-dom'
-import Loupe from '../assests/icons/Loupe'
+import SearchBar from './SearchBar'
 
 const Header = () => {
   return (
@@ -17,10 +17,7 @@ const Header = () => {
             <h2>OpenSea</h2>
           </div>
         </Link>
-        <div className={classes.search}>
-          <Loupe size={27}/>
-          <input type="text" placeholder='Search for NFTs'/>
-        </div>
+        <SearchBar placeholder='Search for NFTs'></SearchBar>
         <Wallet />
         <Cart />
         <Account/>

@@ -1,0 +1,11 @@
+.avatar {
+    background-color: rgb(33, 37, 42);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    border-radius: 5px;
+}

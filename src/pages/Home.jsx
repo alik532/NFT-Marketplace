@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from '../styles/Home.module.css'
 import { collections } from '../data/HomePageCollections'
-import { getValidImgLink } from '../helperFunctions/validateImgLinks'
+import { getValidBannerImgLink } from '../helperFunctions/getValidBannerImgLink'
 import CollectionList from '../components/CollectionList'
 import { useState } from 'react'
 import StarIcon from '../assests/icons/StarIcon'
@@ -11,24 +11,24 @@ const Home = () => {
 
     console.log(collections)
 
-    const [banner, setBanner] = useState(0)
+    const [bannerIndx, setBannerIndx] = useState(0)
 
-    const bannerCollection = collections[banner]
+    const bannerCollection = collections[bannerIndx]
 
     function changeBanner(to) {
-        if (to === "left" && banner !== 0)
-            setBanner(prev => prev - 1)
-        else if (to === 'right' & banner !== collections.length - 1)
-            setBanner(prev => prev+1)
+        if (to === "left" && bannerIndx !== 0)
+            setBannerIndx(prev => prev - 1)
+        else if (to === 'right' & bannerIndx !== collections.length - 1)
+            setBannerIndx(prev => prev+1)
     }
 
     return (
         <div className={classes.home}>
             <div className={classes.bannerCurtain}></div>
-            <img className={classes.bannerBackground} style={{backgroundImage: `url(${getValidImgLink(bannerCollection.banner_image_url)})`}} alt=''/>
+            <img className={classes.bannerBackground} style={{backgroundImage: `url(${getValidBannerImgLink(bannerCollection.banner_image_url)})`}} alt=''/>
             <div className={classes.arrow} style={{left: "45px", top: "400px"}} onClick={() => changeBanner("left")}>{`<`}</div>
             <div className={classes.container}>
-                <div className={classes.bannerImg} alt="" style={{backgroundImage: `url(${getValidImgLink(bannerCollection.banner_image_url)})`}} >
+                <div className={classes.bannerImg} alt="" style={{backgroundImage: `url(${getValidBannerImgLink(bannerCollection.banner_image_url)})`}} >
                     <div className={classes.bannerInfo}>
                         <img src={bannerCollection.image_url} alt="" className={classes.collectionLogo}/>
                         <h2 className={classes.collectionTitle}>{bannerCollection.name}</h2>

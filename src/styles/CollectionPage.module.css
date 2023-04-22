@@ -1,3 +1,126 @@
 .container {
-    width: 1713px;
+    width: 90%;
+    height: auto;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bannerImg {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.avatar {
+    position: absolute;
+    top: 340px;
+    left: 80px;
+}
+
+.mainInfoContainer {
+    color: white;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.collectionName {
+    font-size: 30px;
+}
+
+.mainInfoStrings {
+    display: flex;
+    font-size: 17px;
+    margin-top: 10px;
+    
+}
+.mainInfoStrings > * {
+    margin-right: 10px;
+}
+
+.infoButtons {
+    display: flex;
+    gap: 20px;
+    color: rgba(248, 248, 255, 0.878);
+}
+
+.vLine {
+    width: 1px;
+    height: 30px;
+    background-color: white;
+    margin-top: 5px;
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: 0.1s;
+}
+
+.iconWrapper:hover {
+ background-color: rgba(255, 255, 255, 0.391);
+}
+
+.stats {
+    color: white;
+    margin-top: 50px;
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.stats  h5 {
+    color: gray;
+}
+
+.stat:hover {
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.625);
+}
+
+.assetNavbar {
+    display: flex;
+    color: white;
+    margin-top: 40px;
+    align-items: center;
+    gap: 20px;
+}
+
+.expander {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    transition: 0.1s;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 10px;
+    width: 100px;
+}
+
+.expander:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.222);   
+}
+
+.nResults {
+    color: gray;
+}
+
+.assetContainer {    
+    margin-top: 25px;
+    display: flex;
+    gap: 40px;
+    color: white;
+}
+
+.sortPanel {
+    margin-top: 10px;
 }

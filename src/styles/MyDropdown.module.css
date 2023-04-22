@@ -1,0 +1,41 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    position: absolute;
+    gap: 8px;
+    padding: 5px;
+    background-color: rgb(62, 62, 62);
+}
+
+.option {
+    font-size: 14px;
+    max-width: 240px;
+    min-width: 180px;
+    padding: 9px 5px 9px 20px;
+    border-radius: 8px;
+    transition: 0.15s;
+}
+
+.option:hover {
+    cursor: pointer;
+    background-color: rgb(44, 44, 44);
+}
+
+.selected {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 240px;
+    min-width: 180px;
+    padding: 9px 20px 9px 20px;
+    border: 1px gray solid;
+    border-radius: 8px;
+    transition: 0.15s;
+    font-size: 14px;
+}
+
+.selected:hover {
+    border: 1px white solid;
+    cursor: pointer;
+}

@@ -1,4 +1,4 @@
-export function getValidImgLink(link) {
+export function getValidBannerImgLink(link) {
     let i = link.length - 1
     while (link[i] !== '?') 
         i--

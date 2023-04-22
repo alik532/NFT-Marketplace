@@ -1,0 +1,72 @@
+.img {
+    width: 187px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    vertical-align: middle;
+    transition: all .2s ease;
+}
+
+.card {
+    width: 197px;
+    margin: 10px 7px;
+    gap: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.board {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    min-height: 70px;
+    font-size: 13px;
+    padding: 5px 5px;
+    background-color: rgb(55, 59, 70);
+    width: 177px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.card:hover .img {
+    transform:scale(1.1);
+}
+
+.wrapper {
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    overflow: hidden;
+    display: inline-block;
+    width: 186px;;
+}
+
+.add {
+    height: 5px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    width: 186px;
+    position: absolute;
+    background-color: rgb(28, 141, 186);
+    opacity: 0;
+    bottom: 0;
+    left: 0;
+    transition: 0.15s;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+}
+
+.card:hover .add {
+    opacity: 1;
+    height: 35px;
+}
+
+.add:hover {
+    background-color: rgb(75, 163, 198);
+}
+
+.sortPanel {
+    margin-right: 100px;
+}

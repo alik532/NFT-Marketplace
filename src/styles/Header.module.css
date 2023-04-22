@@ -19,24 +19,6 @@
     flex-direction: row;
 }
 
-.search { 
-    padding: 0px 10px;
-    align-items: center; 
-    border: 1px gray solid;
-    border-radius: 4px;
-    display: flex;
-    flex-grow: 1;
-}
-
-.search > input {
-    color: white;
-    margin: 10px;
-    display: flex;
-    flex-grow: 1;
-    height: 20px;
-    background-color: transparent;
-}
-
 .logo {
     display: flex;
     align-items: center;

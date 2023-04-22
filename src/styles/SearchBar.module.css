@@ -1,0 +1,26 @@
+.search { 
+    padding: 0px 10px;
+    align-items: center; 
+    border: 1px gray solid;
+    border-radius: 8px;
+    display: flex;
+    flex-grow: 1;
+    transition: 0.2s;
+}
+
+.search > input {
+    color: white;
+    margin: 10px;
+    display: flex;
+    flex-grow: 1;
+    height: 20px;
+    background-color: transparent;
+}
+
+.search:hover {
+    border-color: white;
+}
+
+.remove {
+    cursor: pointer;
+}
