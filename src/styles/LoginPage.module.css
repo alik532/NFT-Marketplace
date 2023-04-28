@@ -1,0 +1,66 @@
+.loginPage {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20%;
+    justify-content: flex-start;
+    width: 70%;
+    height: 80%;
+    border: 1px gray solid;
+    border-top: none;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.wrapper {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper > input {
+    transition: 0.1s;
+    font-size: 15px;
+    height: 34px;
+    border-radius: 12px;
+    padding: 4px;
+}
+
+.wrapper > input:hover:active {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.switch {
+    width: 100%;
+    height: 44px;
+    color: white;
+    display: flex;
+}
+
+.button {
+    flex-grow: 1;
+    text-align: center;
+    border: 1px white solid;
+    padding-top: 1%;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.284);
+}
+
+.selected {
+    flex-grow: 1;
+    text-align: center;
+    border: 1px white solid;
+    padding-top: 1%;
+    background-color: rgba(66, 143, 220, 0.314);
+}

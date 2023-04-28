@@ -1,0 +1,15 @@
+.button {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.1s;
+    width: 120px;
+    color: white;
+    height: 44px;
+    border-radius: 12px;
+    background-color: rgb(32, 129, 226);
+}
+
+.button:hover {
+    letter-spacing: 1px;
+    background-color: rgb(66, 143, 220);
+}
