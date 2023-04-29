@@ -1,6 +1,5 @@
 import React from 'react'
 import classes from '../styles/AssetList.module.css'
-import { Link } from 'react-router-dom'
 import AssetCard from './AssetCard'
 import { useState, useEffect } from 'react'
 import fetchCollectionAssets from '../helperFunctions/fetchCollectionAssets'
@@ -46,9 +45,7 @@ const AssetList = ({slug, searchQuery}) => {
     <div>
       <div className={classes.list}>
           {filteredAssets.map(asset => 
-              <Link to='/' key={asset.id}>
-                  <AssetCard asset={asset}/>
-              </Link>
+            <AssetCard asset={asset} slug={slug} key={asset.id}/>
           )}
       </div>
       {!isLoading && <button className={classes.load} onClick={loadMore}>Load More</button>}

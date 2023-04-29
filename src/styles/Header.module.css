@@ -24,3 +24,27 @@
     align-items: center;
     gap: 15px;
 }
+
+.cart {
+    position: relative;
+}
+
+.numItems {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgb(25, 127, 216);
+    position: absolute;
+    bottom: 7px;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logout {
+    padding: 5px;
+    border: 1px grey solid;
+    border-radius: 5px;
+    font-size: small;
+}

@@ -7,22 +7,14 @@ import OpenSeaLogo from '../assests/icons/OpenSeaLogo'
 import { Link } from 'react-router-dom'
 import SearchBar from './SearchBar'
 import { useSelector } from 'react-redux'
-import { selectCart, selectCartStatus, fetchUserCart } from '../reducers/cartReducer'
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { selectCurrentUser } from '../reducers/currentUserReducer'
+import { signOut } from 'firebase/auth'
 import { auth } from '../firebase-config'
 
 const Header = () => {
   
-  const dispatch = useDispatch()
-  const status = useSelector(selectCartStatus)
-  const cart = useSelector(selectCart)
-
-  useEffect(() => {
-    if (status === 'idle') {
-      dispatch(fetchUserCart(auth.currentUser ? auth.currentUser.uid : null))
-    }
-  })
+  const user = useSelector(selectCurrentUser)
+  console.log(user)
 
   return (
     <div className={classes.header}>
@@ -30,16 +22,19 @@ const Header = () => {
         <Link to='/'>
           <div className={classes.logo}>
             <OpenSeaLogo/>
-            {cart ? Object.values(cart).length : null}
             <h2>OpenSea</h2>
           </div>
         </Link>
         <SearchBar placeholder='Search for NFTs'></SearchBar>
         <Wallet /> 
-        <Cart />       
+        <div className={classes.cart}>
+          <Cart />       
+          {user && <div className={classes.numItems}>{Object.values(user.cart).length}</div>}
+        </div>
         <Link to='/register'>
           <Account/>
         </Link>
+        {user && <div className={classes.logout} onClick={() => signOut(auth)}>Log Out</div>}
       </div>
     </div>
   )

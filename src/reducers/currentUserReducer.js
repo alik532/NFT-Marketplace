@@ -4,28 +4,28 @@ import { database } from "../firebase-config";
 
 const initialState = {
     status: "idle",
-    cart: null,
+    user: null,
     error: null,
 }
 
-export const cartSlice = createSlice({
-    name: "cart",
+export const currentUserSlice = createSlice({
+    name: "user",
     initialState,
     reducers: {
         addAssetToCart: (state, action) => {
-            state.cart[action.payload.id] = action.payload
+            state.user.cart[action.payload.id] = action.payload
         }
     },
     extraReducers(builder) {
         builder 
-            .addCase(fetchUserCart.pending, (state, action) => {
+            .addCase(fetchCurrenUser.pending, (state, action) => {
                 state.status = 'loading'
             })
-            .addCase(fetchUserCart.fulfilled, (state, action) => {
+            .addCase(fetchCurrenUser.fulfilled, (state, action) => {
                 state.status = "successful"
-                state.cart = action.payload
+                state.user = action.payload
             })
-            .addCase(fetchUserCart.rejected, (state, action) => {
+            .addCase(fetchCurrenUser.rejected, (state, action) => {
                 state.status = 'error'
                 state.error = action.error.message
             })
@@ -33,12 +33,12 @@ export const cartSlice = createSlice({
     }
 })
 
-export const fetchUserCart = createAsyncThunk('cart/fetchCart',  async (id) => {
+export const fetchCurrenUser = createAsyncThunk('currentUser/fetchCurrentUser',  async (id) => {
     return get(child(ref(database), `users/${id}`)).then((snapshot) => {
         if (snapshot.exists()) {
           console.log('returning user data')
-          console.log(snapshot.val().cart)
-          return snapshot.val().cart
+          console.log(snapshot.val())
+          return snapshot.val()
         } else {
           console.log("No data available");
         }
@@ -47,9 +47,9 @@ export const fetchUserCart = createAsyncThunk('cart/fetchCart',  async (id) => {
       });
 })
 
-export const { getUsersCartData, addAssetToCart } = cartSlice.actions
-export const selectCart = (state) => state.cart.cart
-export const selectCartStatus = (state) => state.cart.status
-export const selectCartError = (state) => state.cart.error
+export const { addAssetToCart } = currentUserSlice.actions
+export const selectCurrentUser = (state) => state.user.user
+export const selectCartStatus = (state) => state.user.status
+export const selectCartError = (state) => state.user.error
 
-export default cartSlice.reducer
+export default currentUserSlice.reducer

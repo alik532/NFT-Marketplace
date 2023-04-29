@@ -5,11 +5,18 @@ import Home from './pages/Home';
 import CollectionPage from './pages/CollectionPage';
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage';
-import { database } from './firebase-config';
+import { fetchCurrenUser } from './reducers/currentUserReducer';
+import { auth } from './firebase-config'
+import { useDispatch } from 'react-redux';
 
 function App() {
 
-  console.log(database)
+  const dispatch = useDispatch()
+  console.log(auth.currentUser)
+  auth.onAuthStateChanged(() => {
+    dispatch(fetchCurrenUser(auth.currentUser.uid))
+    console.log("user gotten from database")
+  })
 
   return (
       <div className="App">

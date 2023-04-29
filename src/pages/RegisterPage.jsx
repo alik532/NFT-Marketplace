@@ -6,14 +6,11 @@ import { createUserWithEmailAndPassword } from 'firebase/auth'
 import {auth} from '../firebase-config'
 import { writeUserToDB } from '../services/database'
 import { useDispatch } from 'react-redux'
-import { useSelector } from 'react-redux'
-import { selectCart } from '../reducers/cartReducer'
 import { Link } from 'react-router-dom'
-import { fetchUserCart } from '../reducers/cartReducer'
+import { fetchCurrenUser } from '../reducers/currentUserReducer'
 
 const RegisterPage = () => {
 
-    console.log(useSelector(selectCart))
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [confirmation, setConfirmation] = useState("")
@@ -25,7 +22,7 @@ const RegisterPage = () => {
                 const userCred = await createUserWithEmailAndPassword(auth, email, password)
                 console.log(userCred)
                 writeUserToDB(userCred.user)
-                dispatch(fetchUserCart(userCred.user.uid))
+                dispatch(fetchCurrenUser(userCred.user.uid))
             }
             catch (error) {
                 console.log(error)
